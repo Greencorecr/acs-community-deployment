@@ -111,7 +111,6 @@ services:
         ports:
             - 5432:5432
         volumes:
-           - ./volumes/data/postgres-data:/var/lib/postgresql/data
            - ./volumes/logs/postgres:/var/log/postgresql
 
     solr6:
