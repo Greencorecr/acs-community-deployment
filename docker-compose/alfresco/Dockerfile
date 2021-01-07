@@ -1,9 +1,6 @@
 FROM alfresco/alfresco-content-repository-community:6.2.1-A8 
 
 USER root
-# Fix to https://issues.alfresco.com/jira/browse/ALF-22013
-ENV LC_ALL C.UTF-8 \
-    LANG C.UTF-8
 
 ARG TOMCAT_DIR=/usr/local/tomcat
 
