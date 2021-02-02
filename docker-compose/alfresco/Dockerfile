@@ -1,4 +1,4 @@
-FROM alfresco/alfresco-content-repository-community:6.2.1-A8 
+FROM alfresco/alfresco-content-repository-community:6.2.0-GA 
 
 USER root
 
