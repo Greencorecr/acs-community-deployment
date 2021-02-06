@@ -112,6 +112,7 @@ services:
             - 5432:5432
         volumes:
            - ./volumes/logs/postgres:/var/log/postgresql
+           - ./volumes/data/postgres-data:/var/lib/postgresql/data
 
     solr6:
         image: alfresco/alfresco-search-services:2.0.0
