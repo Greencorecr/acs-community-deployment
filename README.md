@@ -13,7 +13,11 @@ sudo ../fix-perms.sh
 docker-compose up -d
 ```
 
-Now, check that all of the containers are up. **proxy** should be down, as it's missing it's certificates. Either copy them to volumes/data/certs/conf, or use ```docker-compose run proxy sh```, install openssl with ```apkg add openssl``` and create a certificate pair, with something like ```openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=newdomain.com" -addext "subjectAltName=DNS:newdomain.com" -newkey rsa:2048 -out fullchain.pem -keyout privkey.pem ```, inside the /etc/nginx/tls directory of the container.
+Now, check that all of the containers are up. **proxy** should be down, as it's missing it's certificates. 
+
+Either copy them to volumes/data/certs/conf, or use ```docker-compose run proxy sh```, install openssl with ```apk add openssl``` 
+
+Now you need create a certificate pair, with something like ```openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=newdomain.com" -addext "subjectAltName=DNS:newdomain.com" -newkey rsa:2048 -out fullchain.pem -keyout privkey.pem ```, inside the /etc/nginx/tls directory of the container.
 
 Then get the proxy container up again with:
 
