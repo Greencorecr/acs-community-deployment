@@ -15,9 +15,6 @@ jobs:
     - uses: actions/checkout@v2.2.0
       with:
         fetch-depth: 0
-    #- name: Postman install
-    #  run:
-    #    sudo snap install postman
     - name: Alfresco install
       run: |
         ( cd docker-compose && sudo ../fixperms.sh )
@@ -34,4 +31,3 @@ jobs:
         wget -O - --no-check-certificate http://localhost/share
         wget -O - --no-check-certificate https://localhost/alfresco
         wget -O - --no-check-certificate https://localhost/share
-        python3 test/alf_test.py
