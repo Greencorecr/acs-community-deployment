@@ -147,7 +147,8 @@ services:
             - 61613:61613 # STOMP
 
     proxy:
-        image: nginx:stable-alpine
+        #image: nginx:stable-alpine
+        image: krish512/modsecurity
         mem_limit: 128m
         depends_on:
             - alfresco
@@ -155,7 +156,7 @@ services:
             - alfresco
             - share
         volumes:
-            - ./volumes/config:/etc/nginx/conf.d
+            - ./volumes/config_nginx:/etc/nginx/conf.d
             - ./volumes/logs/nginx:/var/log/nginx
             - ./volumes/data/certs/conf:/etc/nginx/tls
         ports:
