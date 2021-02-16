@@ -147,7 +147,7 @@ services:
             - 61613:61613 # STOMP
 
     proxy:
-        image: nginx:stable-alpine
+        image: greencorecr/nginx_modsecurity
         mem_limit: 128m
         depends_on:
             - alfresco
@@ -159,8 +159,8 @@ services:
             - ./volumes/logs/nginx:/var/log/nginx
             - ./volumes/data/certs/conf:/etc/nginx/tls
         ports:
-            - 81:80
-            - 444:443
+            - 80:80
+            - 443:443
 
     alfresco-pdf-renderer:
         image: alfresco/alfresco-pdf-renderer:2.1.0
@@ -201,22 +201,3 @@ services:
             JAVA_OPTS: " -Xms256m -Xmx512m"
         ports:
             - 8094:8090
-
-
-    modsecurity:
-        image: greencorecr/nginx_modsecurity
-        mem_limit: 128m
-        environment:
-          PROXY: "1"
-          UPSTREAM: proxy:444
-        depends_on:
-            - proxy
-        volumes:
-            - ./volumes/config_nginx:/etc/nginx/conf.d
-            - ./volumes/logs/nginx:/var/log/nginx
-            - ./volumes/data/certs/conf:/etc/nginx/tls
-        ports:
-            - 80:80
-            - 443:443
-
-         
