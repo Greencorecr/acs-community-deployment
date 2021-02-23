@@ -147,7 +147,8 @@ services:
             - 61613:61613 # STOMP
 
     proxy:
-        image: greencorecr/nginx_modsecurity
+        #image: greencorecr/nginx_modsecurity # Temp disabing mod_security
+        image: nginx:stable-alpine
         mem_limit: 128m
         depends_on:
             - alfresco
