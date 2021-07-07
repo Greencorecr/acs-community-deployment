@@ -27,8 +27,8 @@ jobs:
         ( cd docker-compose && docker-compose logs --no-color)
     - name: Basic web tests
       run: |
-        wget -O - --no-check-certificate http://localhost/alfresco
-        wget -O - --no-check-certificate http://localhost/share
+        wget -O - --no-check-certificate http://localhost/alfresco-broken
+        wget -O - --no-check-certificate http://localhost/share-broken
         wget -O - --no-check-certificate https://localhost/alfresco
         wget -O - --no-check-certificate https://localhost/share
         sudo apt-get -qy install nmap
